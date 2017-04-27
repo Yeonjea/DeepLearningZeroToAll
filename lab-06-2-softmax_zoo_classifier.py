@@ -12,11 +12,11 @@ print(x_data.shape, y_data.shape)
 
 nb_classes = 7  # 0 ~ 6
 
-X = tf.placeholder(tf.float32, [None, 16])
+X = tf.placeholder(tf.float32, [None, 16]) # number of animal property
 Y = tf.placeholder(tf.int32, [None, 1])  # 0 ~ 6
 Y_one_hot = tf.one_hot(Y, nb_classes)  # one hot
 print("one_hot", Y_one_hot)
-Y_one_hot = tf.reshape(Y_one_hot, [-1, nb_classes])
+Y_one_hot = tf.reshape(Y_one_hot, [-1, nb_classes]) # one_hot makes n+1 matrix, we have to reshape
 print("reshape", Y_one_hot)
 
 W = tf.Variable(tf.random_normal([16, nb_classes]), name='weight')
